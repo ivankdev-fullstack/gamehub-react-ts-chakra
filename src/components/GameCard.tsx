@@ -3,7 +3,7 @@ import { PlatformIconsList } from "./PlatformIconsList";
 import { CriticScore } from "./CriticScore";
 import { optimizeImage } from "../services/optimize-image";
 import { Emoji } from "./Emoji";
-import { Game } from "../services/gameService";
+import { Game } from "../hooks/useGames";
 
 interface Props {
   game: Game;
