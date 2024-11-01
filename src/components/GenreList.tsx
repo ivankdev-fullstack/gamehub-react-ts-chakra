@@ -6,7 +6,8 @@ import {
   Spinner,
   Heading,
 } from "@chakra-ui/react";
-import { Genre, useGenres } from "../hooks/useGenres";
+import { useGenres } from "../hooks/useGenres";
+import { Genre } from "../services/genreService";
 
 interface Props {
   selectedGenre: Genre | null;
@@ -25,7 +26,7 @@ export const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
         Genres
       </Heading>
       <List>
-        {data.map((g) => (
+        {data?.map((g) => (
           <HStack paddingY={1} key={g.id}>
             <Image
               objectFit="cover"
