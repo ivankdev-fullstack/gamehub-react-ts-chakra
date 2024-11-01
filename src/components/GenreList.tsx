@@ -6,8 +6,7 @@ import {
   Spinner,
   Heading,
 } from "@chakra-ui/react";
-import { useGenres } from "../hooks/useGenres";
-import { Genre } from "../services/genreService";
+import { Genre, useGenres } from "../hooks/useGenres";
 
 interface Props {
   selectedGenre: Genre | null;

@@ -1,7 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
-import { apiClient, Game } from "../services/gameService";
 import { CACHE_KEY_GAMES } from "../constants";
+import { Platform } from "./usePlatforms";
+import { APIClient } from "../services/api-client";
+
+export interface Game {
+  id: number;
+  name: string;
+  background_image: string;
+  parent_platforms: { platform: Platform }[];
+  metacritic: number;
+  rating_top: number;
+}
+
+export const apiClient = new APIClient<Game>("/games");
 
 export const useGames = (gameQuery: GameQuery) =>
   useQuery<Game[], Error>({
