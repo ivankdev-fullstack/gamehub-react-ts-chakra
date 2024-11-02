@@ -6,14 +6,14 @@ import {
   Spinner,
   Heading,
 } from "@chakra-ui/react";
-import { Genre, useGenres } from "../hooks/useGenres";
+import { useGenres } from "../hooks/useGenres";
 
 interface Props {
-  selectedGenre: Genre | null;
-  onSelectGenre: (genre: Genre) => void;
+  selectedGenreId?: number;
+  onSelectGenreId: (genreId: number) => void;
 }
 
-export const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+export const GenreList = ({ selectedGenreId, onSelectGenreId }: Props) => {
   const { data, error, isLoading } = useGenres();
 
   if (error) return null;
@@ -34,8 +34,8 @@ export const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
               src={g.image_background}
             />
             <Button
-              fontWeight={g.id === selectedGenre?.id ? "bold" : "normal"}
-              onClick={() => onSelectGenre(g)}
+              fontWeight={g.id === selectedGenreId ? "bold" : "normal"}
+              onClick={() => onSelectGenreId(g.id)}
               fontSize="lg"
               variant="link"
               whiteSpace="normal"
