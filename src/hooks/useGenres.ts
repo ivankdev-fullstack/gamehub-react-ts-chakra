@@ -1,6 +1,7 @@
 import { CACHE_KEY_GENRES } from "../constants";
 import { useQuery } from "@tanstack/react-query";
 import { APIClient, FetchResponse } from "../services/api-client";
+import ms from "ms";
 
 export interface Genre {
   id: number;
@@ -14,5 +15,5 @@ export const useGenres = () =>
   useQuery<FetchResponse<Genre>, Error>({
     queryKey: [CACHE_KEY_GENRES],
     queryFn: apiClient.get,
-    staleTime: 24 * 60 * 60 * 1000, // 24h
+    staleTime: ms("24h"),
   });
