@@ -16,7 +16,6 @@ export const HomePage = () => {
         base: "1fr",
         lg: "250px 1fr",
       }}
-      paddingX={5}
     >
       <Show above="lg">
         <GridItem area="aside">
@@ -25,7 +24,7 @@ export const HomePage = () => {
       </Show>
       <GridItem area="main">
         <GameHeading />
-        <HStack marginBottom={3} spacing={3}>
+        <HStack marginBottom={3} spacing={3} paddingX={2}>
           <PlatformSelector />
           <SortSelector />
         </HStack>

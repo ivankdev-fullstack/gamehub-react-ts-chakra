@@ -14,6 +14,6 @@ export const apiClient = new APIClient<Genre>("/genres");
 export const useGenres = () =>
   useQuery<FetchResponse<Genre>, Error>({
     queryKey: [CACHE_KEY_GENRES],
-    queryFn: apiClient.get,
+    queryFn: apiClient.getAll,
     staleTime: ms("24h"),
   });

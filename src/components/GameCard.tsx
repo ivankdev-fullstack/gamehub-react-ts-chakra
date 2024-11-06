@@ -13,8 +13,11 @@ interface Props {
 export const GameCard = ({ game }: Props) => {
   const navigate = useNavigate();
 
+  const onGameDetailsPage = () =>
+    navigate(`/games/${game.slug}`, { state: { id: game.id } });
+
   return (
-    <Card onClick={() => navigate(`/games/${game.id}`)}>
+    <Card onClick={onGameDetailsPage}>
       <Image src={optimizeImage(game.background_image)} />
       <CardBody>
         <HStack justifyContent="space-between" marginBottom={5}>

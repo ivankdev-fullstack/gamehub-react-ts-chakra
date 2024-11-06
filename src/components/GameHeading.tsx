@@ -12,7 +12,7 @@ export const GameHeading = () => {
   const heading = `${platform?.name || ""} ${genre?.name || ""} Games`;
 
   return (
-    <Heading marginBottom={4} as="h1">
+    <Heading marginBottom={4} as="h1" paddingX={2}>
       {heading}
     </Heading>
   );

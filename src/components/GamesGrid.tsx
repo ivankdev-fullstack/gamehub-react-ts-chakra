@@ -26,6 +26,7 @@ export const GamesGrid = () => {
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
         spacing={5}
         marginBottom={50}
+        padding={2}
       >
         {isLoading &&
           skeletons.map((skeleton) => (

@@ -20,9 +20,15 @@ export class APIClient<T> {
     this.endpoint = endpoint;
   }
 
-  get = async (config?: AxiosRequestConfig) => {
+  getAll = async (config?: AxiosRequestConfig) => {
     return axiosInstance
       .get<FetchResponse<T>>(this.endpoint, config)
+      .then((res) => res.data);
+  };
+
+  getById = async (id: number | string) => {
+    return axiosInstance
+      .get<T>(this.endpoint + `/${id}`)
       .then((res) => res.data);
   };
 }
