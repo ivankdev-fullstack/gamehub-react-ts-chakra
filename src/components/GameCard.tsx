@@ -3,7 +3,7 @@ import { PlatformIconsList } from "./PlatformIconsList";
 import { CriticScore } from "./CriticScore";
 import { optimizeImage } from "../services/optimize-image";
 import { Emoji } from "./Emoji";
-import { Game } from "../hooks/useGames";
+import { Game } from "../entities/Game";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
