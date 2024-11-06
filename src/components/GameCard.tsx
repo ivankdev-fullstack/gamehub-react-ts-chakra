@@ -4,14 +4,17 @@ import { CriticScore } from "./CriticScore";
 import { optimizeImage } from "../services/optimize-image";
 import { Emoji } from "./Emoji";
 import { Game } from "../hooks/useGames";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   game: Game;
 }
 
 export const GameCard = ({ game }: Props) => {
+  const navigate = useNavigate();
+
   return (
-    <Card>
+    <Card onClick={() => navigate(`/games/${game.id}`)}>
       <Image src={optimizeImage(game.background_image)} />
       <CardBody>
         <HStack justifyContent="space-between" marginBottom={5}>
