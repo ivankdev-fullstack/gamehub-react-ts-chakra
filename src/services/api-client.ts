@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { GameTrailer } from "../entities/GameTrailer";
+import { GameScreenshot } from "../entities/GameScreenshot";
 
 export const axiosInstance = axios.create({
   baseURL: "https://api.rawg.io/api",
@@ -33,9 +34,15 @@ export class APIClient<T> {
       .then((res) => res.data);
   };
 
-  getGameMovie = async (gameId: number | string) => {
+  getGameTrailer = async () => {
     return axiosInstance
-      .get<FetchResponse<GameTrailer>>(this.endpoint)
+      .get<FetchResponse<T>>(this.endpoint)
       .then((res) => res.data.results[0]);
+  };
+
+  getGameScreenshots = async () => {
+    return axiosInstance
+      .get<FetchResponse<T>>(this.endpoint)
+      .then((res) => res.data);
   };
 }
