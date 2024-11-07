@@ -6,25 +6,27 @@ interface Props {
 }
 
 export const GameTrailer = ({ gameId }: Props) => {
-  const { data: trailer, error, isLoading } = useGameTrailer(gameId);
+  const { data, error, isLoading } = useGameTrailer(gameId);
 
   if (isLoading) return <Spinner />;
-  if (error) throw error;
+  if (error) return null;
+
+  const firstTrailer = data.results[0];
+
+  if (!firstTrailer) return null;
 
   return (
-    <Box marginY="30px">
-      <Heading>{trailer.name}</Heading>
+    <Box marginBottom={5}>
+      <Heading>{firstTrailer?.name}</Heading>
       <Box
         borderWidth="1px"
         borderColor="gray.500"
-        borderRadius={10}
+        borderRadius={5}
         overflow="hidden"
-        margin="0px auto"
-        width="75%"
         marginTop={3}
       >
-        <video controls poster={trailer.preview}>
-          <source src={trailer.data.max} type="video/mp4" />
+        <video controls poster={firstTrailer?.preview}>
+          <source src={firstTrailer?.data.max} type="video/mp4" />
         </video>
       </Box>
     </Box>

@@ -2,7 +2,7 @@ import ms from "ms";
 import { useQuery } from "@tanstack/react-query";
 import { CACHE_KEY_SCREENSHOTS } from "../constants";
 import { APIClient, FetchResponse } from "../services/api-client";
-import { GameScreenshot } from "../entities/GameScreenshot";
+import { GameScreenshot } from "../entities/Game";
 
 export const useGameScreenshots = (gameId: string | number) => {
   const apiClient = new APIClient<GameScreenshot>(

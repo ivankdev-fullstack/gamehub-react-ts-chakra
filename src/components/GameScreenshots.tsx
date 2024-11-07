@@ -1,11 +1,4 @@
-import {
-  Box,
-  Grid,
-  GridItem,
-  Image,
-  SimpleGrid,
-  Spinner,
-} from "@chakra-ui/react";
+import { Image, SimpleGrid, Spinner } from "@chakra-ui/react";
 import { useGameScreenshots } from "../hooks/useGameScreenshots";
 
 interface Props {
@@ -24,10 +17,10 @@ export const GameScreenshots = ({ gameId }: Props) => {
         base: 1,
         md: 2,
       }}
-      spacing={5}
+      spacing={2}
     >
       {data?.results.map((s) => (
-        <Image key={s.id} src={s.image} />
+        <Image borderRadius={5} key={s.id} src={s.image} />
       ))}
     </SimpleGrid>
   );

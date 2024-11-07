@@ -14,3 +14,19 @@ export interface Game {
   rating_top: number;
   slug: string;
 }
+
+export interface GameScreenshot {
+  id: number;
+  image: string;
+  width: string;
+  height: string;
+}
+
+export interface GameTrailer {
+  id: string;
+  name: string;
+  preview: string;
+  data: {
+    max: string;
+  };
+}
